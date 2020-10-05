@@ -11,7 +11,8 @@ Upload components allow your app to accept user-uploaded files via drag'n'drop
 
 \usage{
 dccUpload(children=NULL, id=NULL, contents=NULL, filename=NULL,
-last_modified=NULL, accept=NULL, disabled=NULL,
+last_modified=NULL, n_uploads=NULL,
+n_uploads_timestamp=NULL, accept=NULL, disabled=NULL,
 disable_click=NULL, max_size=NULL, min_size=NULL,
 multiple=NULL, className=NULL, className_active=NULL,
 className_reject=NULL, className_disabled=NULL, style=NULL,
@@ -34,6 +35,12 @@ Note that this does not include the path of the file
 
 \item{last_modified}{Numeric | list of numerics. The last modified date of the file that was uploaded in unix time
 (seconds since 1970).}
+
+\item{n_uploads}{Numeric. Number of times file(s) have been uploaded. Similar to n_clicks on Button component. Only
+triggered once for batch uploads.}
+
+\item{n_uploads_timestamp}{Numeric. Timestamp of last completed upload in unix time (seconds since 1970). Only triggered once
+for batch uploads.}
 
 \item{accept}{Character. Allow specific types of files.
 See https://github.com/okonet/attr-accept for more information.

@@ -5178,6 +5178,38 @@
         "required": false,
         "description": "The last modified date of the file that was uploaded in unix time\n(seconds since 1970)."
       },
+      "n_uploads": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Number of times file(s) have been uploaded. Similar to n_clicks on Button component. Only\ntriggered once for batch uploads.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_uploads_timestamp": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Timestamp of last completed upload in unix time (seconds since 1970). Only triggered once\nfor batch uploads.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
       "children": {
         "type": {
           "name": "union",

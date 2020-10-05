@@ -1,12 +1,12 @@
 
 name = "DashCoreComponents"
-uuid = "1b08a953-4be3-4667-9a23-9da06441d987"
+uuid = "1b08a953-4be3-4667-9a23-0387055ed5d1"
 authors = ["Chris Parmer <chris@plotly.com>"]
 version = "1.12.1"
 
 [deps]
 DashBase = "03207cf0-e2b3-4b91-9ca8-690cf0fb507e"
 
-[compat]
+[compact]
 julia = "1.2"
-DashBase = "0.1"
+DashBase = ">=0.1"
