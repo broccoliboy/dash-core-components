@@ -74,6 +74,18 @@ Upload.propTypes = {
     ]),
 
     /**
+     * Number of times file(s) have been uploaded. Similar to n_clicks on Button component. Only
+     * triggered once for batch uploads.
+     */
+    n_uploads: PropTypes.oneOfType([PropTypes.number]),
+
+    /**
+     * Timestamp of last completed upload in unix time (seconds since 1970). Only triggered once
+     * for batch uploads.
+     */
+    n_uploads_timestamp: PropTypes.oneOfType([PropTypes.number]),
+
+    /**
      * Contents of the upload component
      */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
@@ -184,6 +196,8 @@ Upload.defaultProps = {
     max_size: -1,
     min_size: 0,
     multiple: false,
+    n_uploads: 0,
+    n_uploads_timestamp: -1,
     style: {},
     style_active: {
         borderStyle: 'solid',

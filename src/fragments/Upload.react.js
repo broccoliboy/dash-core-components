@@ -10,11 +10,13 @@ export default class Upload extends Component {
     }
 
     onDrop(files) {
-        const {multiple, setProps} = this.props;
+        const {multiple, setProps, n_uploads} = this.props;
         const newProps = {
             contents: [],
             filename: [],
             last_modified: [],
+            n_uploads: n_uploads + 1,
+            n_uploads_timestamp: -1,
         };
         files.forEach(file => {
             const reader = new FileReader();
@@ -28,6 +30,7 @@ export default class Upload extends Component {
                 newProps.filename.push(file.name);
                 // eslint-disable-next-line no-magic-numbers
                 newProps.last_modified.push(file.lastModified / 1000);
+                newProps.n_uploads_timestamp = Date.now();
                 if (newProps.contents.length === files.length) {
                     if (multiple) {
                         setProps(newProps);
@@ -36,6 +39,8 @@ export default class Upload extends Component {
                             contents: newProps.contents[0],
                             filename: newProps.filename[0],
                             last_modified: newProps.last_modified[0],
+                            n_uploads: newProps.n_uploads,
+                            n_uploads_timestamp: newProps.n_uploads_timestamp,
                         });
                     }
                 }
