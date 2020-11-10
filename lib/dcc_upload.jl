@@ -21,6 +21,10 @@ Note that this does not include the path of the file
 (for security reasons).
 - `last_modified` (Real | Array of Reals; optional): The last modified date of the file that was uploaded in unix time
 (seconds since 1970).
+- `n_uploads` (Real; optional): Number of times file(s) have been uploaded. Similar to n_clicks on Button component. Only
+triggered once for batch uploads.
+- `n_uploads_timestamp` (Real; optional): Timestamp of last completed upload in unix time (seconds since 1970). Only triggered once
+for batch uploads.
 - `accept` (String; optional): Allow specific types of files.
 See https://github.com/okonet/attr-accept for more information.
 Keep in mind that mime type determination is not reliable across
@@ -48,7 +52,7 @@ Those elements have the following types:
   - `component_name` (String; optional): Holds the name of the component that is loading
 """
 function dcc_upload(; kwargs...)
-        available_props = Symbol[:children, :id, :contents, :filename, :last_modified, :accept, :disabled, :disable_click, :max_size, :min_size, :multiple, :className, :className_active, :className_reject, :className_disabled, :style, :style_active, :style_reject, :style_disabled, :loading_state]
+        available_props = Symbol[:children, :id, :contents, :filename, :last_modified, :n_uploads, :n_uploads_timestamp, :accept, :disabled, :disable_click, :max_size, :min_size, :multiple, :className, :className_active, :className_reject, :className_disabled, :style, :style_active, :style_reject, :style_disabled, :loading_state]
         wild_props = Symbol[]
         return Component("dcc_upload", "Upload", "dash_core_components", available_props, wild_props; kwargs...)
 end
